@@ -5,9 +5,112 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #fafafa; /* Light grey background for minimalism */
+}
+
+/* Add a wrapper for your app content */
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  height: 100vh;
+  margin: 0 auto; /* Center the wrapper */
+  padding: 2rem; /* Add padding for spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
+  background-color: #a7d0dd13; /* Optional: for contrast against the gradient */
+  border-radius: 8px; /* Optional: rounded corners for the container */
+  min-height: 100vh; /* Full viewport height */
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 10;
+  width: 100%;
+  padding: 1rem 0;
+  margin-bottom: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* subtle shadow for depth */
+
+
+}
+
+h1 {
+  text-align: center; /* Center the heading */
+  margin-bottom: 2rem; /* Add space below the heading */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.todo-list-container {
+  overflow-y: auto;
+  width: 100%;
+  flex-grow: 1; /* Take up remaining space */
+}
+
+
+.todo-list-item {
+  border: 1px solid #e0e0e0; /* Lighter border for todo items */
+  padding: 10px;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  background: white; /* White background for todo items */
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Space between title and buttons */
+  align-items: center; /* Align items vertically */
+}
+
+.todo-title {
+  margin-right: auto; /* Pushes all subsequent elements to the right */
+}
+
+.todo-list-item:hover {
+  background-color: #f5f5f5; 
+}
+
+.input-field {
+  padding: 8px 15px;
+  border: 1px solid #e0e0e0; /* Light border for input field */
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.input-field,
+.button {
+  margin-bottom: 0.5rem; /* Add space below inputs and buttons */
+}
+
+.button {
+  background-color: #cccccc; /* Muted button background */
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.button:hover {
+  background-color: #bbbbbb; /* Slightly darker on hover */
+}
+
+
+.delete-button {
+  background-color: #ff6b6b; /* Soft red for delete buttons */
+}
+
+.edit-button {
+  background-color: #ffcc5c; /* Soft yellow for edit buttons */
+}
+
+.button:hover {
+  transform: translateY(-1px); /* Lift effect on hover */
 }
