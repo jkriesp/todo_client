@@ -80,6 +80,7 @@ code {
   border: 1px solid #e0e0e0; /* Light border for input field */
   border-radius: 4px;
   margin-right: 5px;
+  box-sizing: border-box;
 }
 
 .input-field,
@@ -113,4 +114,53 @@ code {
 
 .button:hover {
   transform: translateY(-1px); /* Lift effect on hover */
+}
+
+/* Responsive design adjustments */
+@media (max-width: 768px) {
+  .app-wrapper {
+    width: 95%; /* Increase width on smaller screens */
+    padding: 1rem; /* Reduce padding */
+    max-width: none; /* Remove max-width constraint */
+  }
+
+  .header {
+    padding: 0.5rem 0; /* Reduce header padding */
+  }
+
+  .todo-list-item {
+    padding: 8px; /* Slightly reduce padding for todo items */
+    flex-direction: column; /* Stack title and buttons vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .todo-title {
+    margin-bottom: 0.5rem; /* Add space between title and buttons */
+  }
+
+  .input-field,
+  .button {
+    width: 100%; /* Full width for better usability */
+    margin-right: 0; /* Remove margin-right */
+    box-sizing: border-box;
+  }
+
+  .button {
+    margin-bottom: 0.5rem; /* Add space below buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .header h1 {
+    font-size: 1.5rem; /* Reduce font size of the header */
+  }
+
+  .input-field {
+    padding: 6px 10px; /* Slightly reduce padding for input field */
+  }
+
+  .button {
+    padding: 6px 10px; /* Slightly reduce padding for buttons */
+  }
 }
