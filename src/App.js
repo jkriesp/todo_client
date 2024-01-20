@@ -12,7 +12,7 @@ function App() {
 
     // Function to fetch todos from the API
     const fetchTodos = () => {
-        fetch('http://127.0.0.1:8080/todos')
+        fetch(`${apiUrl}/todos`)
             .then(response => response.json())
             .then(data => setTodos(data))
             .catch(error => console.error('Error fetching todos:', error));

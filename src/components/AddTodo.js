@@ -8,7 +8,7 @@ function AddTodo({ onTodoAdded }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch('http://127.0.0.1:8080/todos', {
+        fetch(`${apiUrl}/todos`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ title })

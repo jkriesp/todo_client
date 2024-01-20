@@ -8,7 +8,7 @@ function EditTodo({ todoId, onTodoUpdated }) {
 
     useEffect(() => {
         if (todoId) {
-            fetch(`http://127.0.0.1:8080/todos/${todoId}`)
+            fetch(`${apiUrl}/todos/${todoId}`)
                 .then(response => response.json())
                 .then(data => setTitle(data.title));
         }
@@ -17,7 +17,7 @@ function EditTodo({ todoId, onTodoUpdated }) {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log('Updating Todo with ID:', todoId); // Debugging log
-        fetch(`http://127.0.0.1:8080/todos/${todoId}`, {
+        fetch(`${apiUrl}/todos/${todoId}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ id: todoId, title })

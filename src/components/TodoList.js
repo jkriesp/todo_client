@@ -5,7 +5,7 @@ const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080'; // Fall
 
 function TodoList({ todos, onEditTodo }) {
     const handleDelete = (todoId) => {
-        fetch(`http://127.0.0.1:8080/todos/${todoId}`, { method: 'DELETE' })
+        fetch(`${apiUrl}/todos/${todoId}`, { method: 'DELETE' })
             .then(() => {
                 // Notify parent component to update the todos list
                 onEditTodo(todoId, 'delete');
