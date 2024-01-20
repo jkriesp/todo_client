@@ -1,5 +1,8 @@
 import React from 'react';
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080'; // Fallback to localhost if not set
+
+
 function TodoList({ todos, onEditTodo }) {
     const handleDelete = (todoId) => {
         fetch(`http://127.0.0.1:8080/todos/${todoId}`, { method: 'DELETE' })

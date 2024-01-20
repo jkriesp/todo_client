@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080'; // Fallback to localhost if not set
+
+
 function AddTodo({ onTodoAdded }) {
     const [title, setTitle] = useState('');
 

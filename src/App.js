@@ -3,6 +3,9 @@ import TodoList from './components/TodoList';
 import AddTodo from './components/AddTodo';
 import EditTodo from './components/EditTodo';
 
+const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080'; // Fallback to localhost if not set
+
+
 function App() {
     const [todos, setTodos] = useState([]);
     const [editingTodoId, setEditingTodoId] = useState(null);
