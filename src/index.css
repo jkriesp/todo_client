@@ -83,6 +83,15 @@ code {
   box-sizing: border-box;
 }
 
+.error-message {
+  color: #f35656; /* A red color for error messages */
+  margin-top: 0.5rem; /* Space above the error message */
+  margin-bottom: 1rem; /* Space below the error message */
+  font-size: 1.1rem; /* Slightly smaller font size */
+  text-align: center; /* Center the text */
+}
+
+
 .input-field,
 .button {
   margin-bottom: 0.5rem; /* Add space below inputs and buttons */

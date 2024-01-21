@@ -43,14 +43,18 @@ function App() {
     };
 
     // Function to handle when a todo is selected for editing
-    const handleEditTodo = (todoId, action) => {
+    const handleEditTodo = (todo, action) => {
         if (action === 'delete') {
-            // Update the todos state to reflect the deletion
-            setTodos(todos.filter(todo => todo.id !== todoId));
+            setTodos(todos.filter(t => t.id !== todo));
+        } else if (action === 'update') {
+            setTodos(prevTodos =>
+                prevTodos.map(t =>
+                    t.id === todo.id ? todo : t
+                )
+            );
         } else {
-            // Existing logic for setting editingTodoId
-            console.log("Editing Todo with ID: ", todoId);
-            setEditingTodoId(todoId);
+            console.log("Editing Todo with ID: ", todo);
+            setEditingTodoId(todo);
         }
     };
 
@@ -71,6 +75,7 @@ function App() {
                     <TodoList
                         todos={todos}
                         onEditTodo={handleEditTodo}
+                        onTodoUpdated={handleTodoUpdated}
                     />
                 )}
             </div>
