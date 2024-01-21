@@ -1,70 +1,79 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Todo Application - Frontend
 
-## Available Scripts
+## Table of Contents
+- [Overview](#overview)
+- [Purpose](#purpose)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Setup and Installation](#setup-and-installation)
+  - [Prerequisites](#prerequisites)
+  - [Running Locally](#running-locally)
+- [Deployment](#deployment)
+- [CI/CD Pipeline](#cicd-pipeline)
+- [Learning Outcomes](#learning-outcomes)
 
-In the project directory, you can run:
+## Overview
+This repository contains the frontend code for the Todo Application, a web application designed for efficient task management. It's built using React and integrates with a backend API for full functionality.
 
-### `npm start`
+## Purpose
+The frontend of the Todo Application showcases modern web development techniques with a focus on:
+- Creating interactive and responsive user interfaces with React.
+- Consuming RESTful APIs for dynamic data handling.
+- Implementing modern JavaScript practices and using React features effectively.
+- Demonstrating CI/CD principles using GitHub and Vercel for continuous integration and deployment.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
+- Interactive UI for managing tasks (create, view, update, delete).
+- Responsive design for optimal experience across different devices.
+- Integration with the backend API for real-time data processing.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
+- React
+- HTML/CSS
+- JavaScript (ES6+)
+- [Other Libraries/Frameworks used in the project]
 
-### `npm test`
+## Setup and Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
+- Node.js and npm
+- Access to the backend API (See the backend repository for setup)
 
-### `npm run build`
+### Running Locally
+1. Clone the repository:
+   ```bash
+   git clone [repository URL]
+   cd [repository directory]
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. The application will be running at `http://localhost:3000`.
 
-### `npm run eject`
+## Deployment
+The application is configured for CI/CD with Vercel. Any commits to the `main` branch trigger an automatic build and deployment process.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## CI/CD Pipeline
+The CI/CD pipeline for this project is set up to streamline development and deployment processes using GitHub and Vercel:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **GitHub Integration**: The repository is integrated with GitHub, enabling version control and collaborative development.
+- **Automated Deployments with Vercel**: The application is connected to Vercel, which automatically deploys the latest version of the main branch.
+- **Build Configuration**: On every commit to the main branch, Vercel automatically builds and deploys the application. The build settings are configured in Vercel to align with the project requirements.
+- **Environment Management**: Environment variables and project settings are managed through Vercel's dashboard, ensuring that the production build aligns with the desired configuration.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This setup ensures that every push to the main branch is automatically and reliably deployed, maintaining a consistent state of the live application.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Learning Outcomes
+- Gained experience in building and deploying a React application.
+- Learned to integrate frontend applications with RESTful APIs.
+- Understood the principles and practices of CI/CD in a real-world project setting.
