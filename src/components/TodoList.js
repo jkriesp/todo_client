@@ -3,16 +3,14 @@ import React, { useState } from 'react';
 const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
 
 function TodoList({ todos, onTodoUpdated, onEditTodo }) {
-    const [editingTodoId, setEditingTodoId] = useState(null);
-    const [editedTitle, setEditedTitle] = useState('');
+    const [editingTodo, setEditingTodo] = useState(null); // Updated to handle the entire todo
 
     const handleEditClick = (todo) => {
-        setEditingTodoId(todo.id);
-        setEditedTitle(todo.title || '');
+        setEditingTodo(todo); // Store the entire todo object for editing
     };
 
     const handleCancel = () => {
-        setEditingTodoId(null);
+        setEditingTodo(null); // Reset the entire editingTodo state
     };
 
     const handleDelete = (todoId) => {
@@ -28,18 +26,19 @@ function TodoList({ todos, onTodoUpdated, onEditTodo }) {
             });
     };
 
-    const handleSave = (todoId) => {
-        fetch(`${apiUrl}/todos/${todoId}`, {
+
+    const handleSave = () => {
+        fetch(`${apiUrl}/todos/${editingTodo.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ id: todoId, title: editedTitle })
+            body: JSON.stringify(editingTodo) // Send the entire updated todo
         })
-            .then(response => response.json())
-            .then(updatedTodo => {
-                onTodoUpdated(updatedTodo);
-                setEditingTodoId(null);
-            })
-            .catch(error => console.error('Error updating todo:', error));
+        .then(response => response.json())
+        .then(updatedTodo => {
+            onTodoUpdated(updatedTodo); // Notify parent component
+            setEditingTodo(null); // Reset editingTodo state
+        })
+        .catch(error => console.error('Error updating todo:', error));
     };
 
     const toggleComplete = (todoId) => {
@@ -63,6 +62,13 @@ function TodoList({ todos, onTodoUpdated, onEditTodo }) {
         .catch(error => console.error('Error updating todo:', error));
     };
 
+    const handleChange = (e) => {
+        setEditingTodo({
+            ...editingTodo,
+            [e.target.name]: e.target.value
+        });
+    };
+
     return (
         <div>
             {todos.map(todo => (
@@ -70,28 +76,28 @@ function TodoList({ todos, onTodoUpdated, onEditTodo }) {
                     <input
                         type="checkbox"
                         checked={todo.complete}
-                        onChange={() => toggleComplete(todo.id, todo.complete)}
+                        onChange={() => toggleComplete(todo.id)}
                     />
-                    {editingTodoId === todo.id ? (
+                    {editingTodo && editingTodo.id === todo.id ? (
                         <input
                             className='input-field'
+                            name="title"
                             type="text"
-                            value={editingTodoId === todo.id ? editedTitle : ''}
-                            onChange={(e) => setEditedTitle(e.target.value)}
-                            disabled={editingTodoId !== todo.id}
+                            value={editingTodo.title}
+                            onChange={handleChange}
                         />
                     ) : (
                         <span className={todo.complete ? "todo-title completed" : "todo-title"}>{todo.title}</span>
                     )}
                     <div className="todo-buttons">
-                        {editingTodoId === todo.id ? (
+                        {editingTodo && editingTodo.id === todo.id ? (
                             <>
-                                <button className="button save-button" onClick={() => handleSave(todo.id)}>Save</button>
+                                <button className="button save-button" onClick={handleSave}>Save</button>
                                 <button className="button cancel-button" onClick={handleCancel}>Cancel</button>
                             </>
                         ) : (
                             <>
-                                <button className="button delete-button" onClick={() => handleDelete(todo.id, 'delete')}>Delete</button>
+                                <button className="button delete-button" onClick={() => handleDelete(todo.id)}>Delete</button>
                                 <button className="button edit-button" onClick={() => handleEditClick(todo)}>Edit</button>
                             </>
                         )}
