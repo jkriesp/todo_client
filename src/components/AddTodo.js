@@ -22,7 +22,10 @@ function AddTodo({ onTodoAdded }) {
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                // Read the response as JSON if the response is not ok
+                return response.json().then(err => {
+                    throw new Error(err.errors.title || 'Network response was not ok');
+                });
             }
             return response.json();
         })
@@ -32,7 +35,7 @@ function AddTodo({ onTodoAdded }) {
         })
         .catch(error => {
             console.error('Error adding todo:', error);
-            setError('Failed to add todo');
+            setError(error.message || 'Error adding todo');
         })
         .finally(() => setIsSubmitting(false));
     };
