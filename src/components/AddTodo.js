@@ -49,7 +49,7 @@ function AddTodo({ onTodoAdded }) {
                 onChange={(e) => setTitle(e.target.value)}
                 disabled={isSubmitting}
             />
-            <button className='button' type="submit" disabled={isSubmitting}>Add Todo</button>
+            <button className='button' id='add-todo-button' type="submit" disabled={isSubmitting}>Add Todo</button>
             {error && <p className="error-message">{error}</p>}
         </form>
     );

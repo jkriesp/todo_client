@@ -36,7 +36,7 @@ body {
   background: white;
   z-index: 10;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem 0.1rem;
   margin-bottom: 8px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
@@ -97,6 +97,11 @@ body {
   transition: background-color 0.2s, transform 0.1s;
 }
 
+#add-todo-button {
+  width: calc(100% - 2rem);
+  margin: 5px;
+}
+
 .button:hover {
   background-color: #bbbbbb; /* Slightly darker on hover */
 }
@@ -147,10 +152,11 @@ body {
 
   .input-field {
     font-size: 16px; /* Prevent zoom on mobile */
+
   } 
 
   .input-field, .button {
-    width: 100%;
+    width: calc(100% - 2rem);
     margin-bottom: 1rem;
 }
 
